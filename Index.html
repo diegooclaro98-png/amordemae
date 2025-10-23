@@ -4,85 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amor & Desconto</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffe6f0;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background-color: #fff0f6;
-      border-radius: 20px;
-      padding: 30px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 { color: #ff4fa3; text-align: center; margin-bottom: 10px; }
-    h2 { color: #b34e7e; text-align: center; margin-top: 0; }
-    p { color: #8a4869; text-align: center; font-size: 14px; }
-
-    .popup-container {
-      width: 100%;
-      height: 35px;
-      margin-bottom: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .popup {
-      position: absolute;
-      background: #ff4fa3;
-      color: white;
-      font-weight: bold;
-      padding: 6px 16px;
-      border-radius: 25px;
-      box-shadow: 0 2px 8px rgba(255, 105, 180, 0.5);
-      font-size: 14px;
-      text-align: center;
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      white-space: nowrap;
-      backface-visibility: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .popup.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .button {
-      background-color: #28a745;
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      width: 100%;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .button:hover { background-color: #22c55e; }
-
-    .contador { text-align: center; margin-top: 20px; color: #ff4fa3; font-weight: bold; font-size: 22px; }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -90,6 +12,7 @@
     <h2>Gestantes e mães de pequenos</h2>
     <p>Aqui você encontra ofertas para montar um enxoval econômico, de qualidade e com bom gosto. Entre no grupo e aproveite cupons, novidades e promoções diárias.</p>
 
+    <!-- Campo fixo para popup -->
     <div class="popup-container">
       <div id="popup" class="popup"></div>
     </div>
@@ -97,33 +20,9 @@
     <button class="button" onclick="window.open('https://chat.whatsapp.com/BNMyE5R2P7j6R8IzC5vp0R', '_blank')">✨ Aproveitar Promoção</button>
 
     <div class="contador">Vagas restantes: <span id="contador">35</span></div>
+    <p style="font-size: 12px; color: #8a4869; margin-top: 10px; text-align: center;">É confiável? Sim — moderadores selecionam as promoções e postam links com verificação.</p>
   </div>
 
-  <script>
-    const nomes = [
-      "Ana P.", "Lucas S.", "Carla M.", "Pedro F.", "Laura R.", "Rafael T.", "Julia A.",
-      "Fernando B.", "Isabela C.", "Mateus D.", "Camila E.", "Gustavo F.", "Bianca G.", "Victor H."
-    ];
-
-    const mensagens = ["acabou de entrar no grupo!", "está participando agora!", "se juntou ao grupo!"];
-    const popup = document.getElementById('popup');
-
-    function mostrarPopup() {
-      const nome = nomes[Math.floor(Math.random() * nomes.length)];
-      const msg = mensagens[Math.floor(Math.random() * mensagens.length)];
-      popup.textContent = `${nome} ${msg}`;
-      popup.classList.add('show');
-      setTimeout(() => popup.classList.remove('show'), 3000);
-    }
-    setInterval(mostrarPopup, 3500);
-
-    let contador = 35;
-    function reduzirContador() {
-      contador--;
-      if (contador < 0) contador = 0;
-      document.getElementById('contador').textContent = contador;
-    }
-    setInterval(reduzirContador, 2000);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
